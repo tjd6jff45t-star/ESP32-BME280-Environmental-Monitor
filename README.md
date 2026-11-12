@@ -71,11 +71,40 @@ After verifying the circuit on a breadboard, the design was recreated in KiCad. 
 ## Prototype and Test Results
 
 The system was first verified as a breadboard prototype before moving into PCB design.
+<img width="2268" height="4032" alt="ESP32" src="https://github.com/user-attachments/assets/1e8e2d45-dcc2-4194-9cac-f5cd5c5d4c74" />
+<img width="2268" height="4032" alt="BME280_sensor" src="https://github.com/user-attachments/assets/4749b228-80a3-4d94-b7fa-7a87ccf7bcd5" />
+<img width="2268" height="4032" alt="led_circuit" src="https://github.com/user-attachments/assets/c1f100a2-a3ba-4a8c-980b-3fdc03796fca" />
+Note: Breadboard prototype showing the ESP32 development board connected to the BME280 environmental sensor over I2C.
+
+## Schematic and PCB Design
+<img width="881" height="693" alt="final_shematic" src="https://github.com/user-attachments/assets/b17e636d-56f5-4be8-b01f-33226e522fcd" />
+Note: Final KiCad schematic representing the ESP32 development board, BME280 module, and LED status circuit.
+
+<img width="1825" height="2665" alt="2D_PCB_(2)" src="https://github.com/user-attachments/assets/a8198e35-3f49-49d5-9c72-9da34ca3e73b" />
+Note: Final PCB layout showing component placement, routed traces, ground copper fill, and completed board outline.
+
+<img width="3213" height="5712" alt="final_PCB_(1)" src="https://github.com/user-attachments/assets/1a7f93c1-e1b7-4b61-8341-0755de914dad" />
+<img width="3213" height="5712" alt="final_PCB_(2)" src="https://github.com/user-attachments/assets/243a83b0-d557-41ff-96b8-4dd33b8c9c0f" />
+<img width="2268" height="4032" alt="final_PCB_(3)" src="https://github.com/user-attachments/assets/1b3ec443-f03b-40d8-a1e6-3ff68099b5c1" />
+Note: KiCad 3D view of the completed PCB design used to verify component placement and board layout before manufacturing export.
+
+## Manufacturing Outputs
+
+The PCB design was checked using KiCad's Design Rules Checker with no remaining errors. Gerber and drill files were then generated for PCB manufacturing.
+
+Generated fabrication files include:
+
+- Front and back copper layers
+- Front and back solder mask layers
+- Front and back silkscreen layers
+- Board outline (`Edge.Cuts`)
+- Plated through-hole drill file
+- Non-plated through-hole drill file
 
 ### I2C Communication Test
-An I2C scanner was used to confirm communication between the ESP32 and the BME280. The sensor was successfully detected at address:
-
-`0x76`
+An I2C scanner was used to confirm communication between the ESP32 and the BME280. The sensor was successfully detected at address: 0x76
+<img width="2268" height="4032" alt="sensor_adress" src="https://github.com/user-attachments/assets/5784e3d8-1cc7-4575-b6c4-4917d2736fb2" />
+Note: I2C scanner output confirming successful communication with the BME280 at address 0x76.
 
 ### Environmental Sensor Readings
 The ESP32 successfully collected and displayed live:
@@ -85,11 +114,20 @@ The ESP32 successfully collected and displayed live:
 - Atmospheric pressure
 
 The readings were displayed through the Serial Monitor and updated at regular intervals.
+<img width="2268" height="4032" alt="senor_data_collection" src="https://github.com/user-attachments/assets/f5384f95-2264-48d8-bd92-5f486e80b3f3" />
+
 
 ### Sensor Health Monitoring
 The firmware included checks for invalid sensor readings and startup communication failures. A disconnected sensor produced an error message, while normal operation reported:
 
-`Sensor Status: OK`
+Sensor Status: OK
 
 ### LED Status Indicator
 An external LED connected to GPIO 2 was used as a hardware status indicator. The LED remained active during normal sensor operation and was used to indicate fault conditions during testing.
+
+### Challenges & What I Learned
+One of the major difficulties faced in this project was moving from the functional breadboard setup to designing a PCB that faithfully represents the development boards and modules used. I started with bare chip symbols in KiCad and then updated the design to include connector based symbols for the ESP32 development board and the BME280 breakout module.
+
+Further, I have learned how to debug serial communication, identify the I2C address of the BME280, handle cases where sensor readings fail, and improve the firmware code to replace delay() calls with calls to millis() for timing.
+
+In the PCB part of the project, I got hands-on experience in placing footprints, placing components, routing, using ground plane, defining board outline, performing DRC, and generating manufacturing files.
