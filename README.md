@@ -145,3 +145,13 @@ Demonstration of the ESP32 reading temperature, humidity, and pressure from the 
 Demonstration of the firmware detecting a disconnected BME280 sensor and reporting the fault condition.
 
 [Watch Video](https://youtu.be/SMHI9AHuyio?si=rTMh6QFZ928x4NxT)
+
+
+## Repository Contents
+
+- `Hardware_Photos` — photos of the ESP32, BME280, breadboard prototype, and LED circuit
+- `Firmware` — PlatformIO C++ firmware and project configuration
+- `Schematic` — KiCad schematic files and schematic screenshots
+- `PCB` — KiCad PCB files, 2D layout, and 3D board views
+- `Test_Results` — I2C scan results, live sensor readings, and status verification
+- `Manufacturing_Files` — Gerber and drill files generated for PCB fabrication
