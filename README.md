@@ -1,2 +1,2 @@
-# ESP32-BME280-Environmental-Monitor
-BME280 sensor project information.
+# ESP32 EnvironmentalMonitoring System
+An embedded environmental monitoring system built with an ESP32 and BME280 sensor using I2C communication. The project measures temperature, humidity, and atmospheric pressure, includes sensor health monitoring with an LED status indicator, and was developed from a working breadboard prototype into a custom KiCad PCB design with completed DRC and manufacturing files.
