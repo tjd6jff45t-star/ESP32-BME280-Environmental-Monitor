@@ -21,3 +21,34 @@ After verifying the circuit on a breadboard, the design was recreated in KiCad. 
 - Designed the system schematic and PCB layout in KiCad.
 - Completed PCB routing, ground copper fill, board outline, and Design Rules Check with no remaining errors.
 - Generated Gerber and drill files for PCB manufacturing.
+
+
+## Hardware and Tools Used
+
+### Hardware
+- ESP32 development board
+- BME280 temperature, humidity, and pressure sensor
+- Breadboard
+- 220 Ω resistor
+- LED
+- Jumper wires
+- USB-C cable
+
+### Software
+- Visual Studio Code
+- PlatformIO
+- Arduino framework
+- C++
+- KiCad
+- GitHub
+
+### Interfaces and Techniques
+- I2C communication
+- GPIO control
+- PWM
+- Serial debugging
+- Non-blocking timing with `millis()`
+- Sensor fault detection
+- PCB schematic capture and layout
+- Design Rules Check (DRC)
+- Gerber and drill file generation
