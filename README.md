@@ -52,3 +52,17 @@ After verifying the circuit on a breadboard, the design was recreated in KiCad. 
 - PCB schematic capture and layout
 - Design Rules Check (DRC)
 - Gerber and drill file generation
+
+
+## System Operation
+
+1. The ESP32 initializes the BME280 sensor over the I2C bus.
+2. The firmware checks for the sensor at address `0x76`.
+3. Once communication is established, the ESP32 reads:
+   - Temperature
+   - Relative humidity
+   - Atmospheric pressure
+4. Sensor data is printed to the Serial Monitor at regular intervals.
+5. The firmware uses `millis()` instead of long blocking delays so the microcontroller can continue performing other tasks.
+6. If a sensor reading is invalid or communication fails, the firmware reports an error.
+7. An external LED provides a visual status indication for normal sensor operation and fault conditions.
