@@ -66,3 +66,30 @@ After verifying the circuit on a breadboard, the design was recreated in KiCad. 
 5. The firmware uses `millis()` instead of long blocking delays so the microcontroller can continue performing other tasks.
 6. If a sensor reading is invalid or communication fails, the firmware reports an error.
 7. An external LED provides a visual status indication for normal sensor operation and fault conditions.
+
+
+## Prototype and Test Results
+
+The system was first verified as a breadboard prototype before moving into PCB design.
+
+### I2C Communication Test
+An I2C scanner was used to confirm communication between the ESP32 and the BME280. The sensor was successfully detected at address:
+
+`0x76`
+
+### Environmental Sensor Readings
+The ESP32 successfully collected and displayed live:
+
+- Temperature
+- Relative humidity
+- Atmospheric pressure
+
+The readings were displayed through the Serial Monitor and updated at regular intervals.
+
+### Sensor Health Monitoring
+The firmware included checks for invalid sensor readings and startup communication failures. A disconnected sensor produced an error message, while normal operation reported:
+
+`Sensor Status: OK`
+
+### LED Status Indicator
+An external LED connected to GPIO 2 was used as a hardware status indicator. The LED remained active during normal sensor operation and was used to indicate fault conditions during testing.
