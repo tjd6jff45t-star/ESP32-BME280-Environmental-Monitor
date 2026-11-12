@@ -126,8 +126,22 @@ Sensor Status: OK
 An external LED connected to GPIO 2 was used as a hardware status indicator. The LED remained active during normal sensor operation and was used to indicate fault conditions during testing.
 
 ### Challenges & What I Learned
-One of the major difficulties faced in this project was moving from the functional breadboard setup to designing a PCB that faithfully represents the development boards and modules used. I started with bare chip symbols in KiCad and then updated the design to include connector based symbols for the ESP32 development board and the BME280 breakout module.
+One of the major difficulties faced in this project was moving from the functional breadboard setup to designing a PCB that faithfully represents the development boards and modules used. I started with bare chip symbols in KiCad and then updated the design to include connector-based symbols for the ESP32 development board and the BME280 breakout module. Further, I have learned how to debug serial communication, identify the I2C address of the BME280, handle cases where sensor readings fail, and improve the firmware code to replace delay() calls with calls to millis() for timing. In the PCB part of the project, I got hands-on experience in placing footprints, placing components, routing, using ground plane, defining board outline, performing DRC, and generating manufacturing files.
 
-Further, I have learned how to debug serial communication, identify the I2C address of the BME280, handle cases where sensor readings fail, and improve the firmware code to replace delay() calls with calls to millis() for timing.
 
-In the PCB part of the project, I got hands-on experience in placing footprints, placing components, routing, using ground plane, defining board outline, performing DRC, and generating manufacturing files.
+## Project Videos
+
+### LED Control and PWM Test
+Short demonstration of GPIO control, LED blinking, and PWM brightness control.
+
+[Watch Video](https://youtu.be/5xzfCAMmV3Y?si=MW0iVssP8jog2qvU)
+
+### BME280 Sensor Operation
+Demonstration of the ESP32 reading temperature, humidity, and pressure from the BME280 over I2C.
+
+[Watch Video](https://youtu.be/nWZxm4SdqU8?si=XMHZjkytFm5WDLaI)
+
+### Sensor Fault Detection
+Demonstration of the firmware detecting a disconnected BME280 sensor and reporting the fault condition.
+
+[Watch Video](https://youtu.be/SMHI9AHuyio?si=rTMh6QFZ928x4NxT)
